@@ -113,7 +113,7 @@ exports.getDeliveryDetails = (req, res, next) => {
 }
 
 exports.endDelivery = (req, res, next) => {
-    const _id = req.headers._id;
+    const _id = req.body._id;
     if (!_id) {
         console.log("Id not provided");
         return res.status(500)
