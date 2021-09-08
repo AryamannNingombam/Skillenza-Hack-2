@@ -1,10 +1,9 @@
-const CompanyModel = require('../models/Company');
+const UserModel = require('../models/User');
 
 
 
 
-
-exports.getCompanyDetails = (req, res, next) => {
+exports.getUserDetails = (req, res, next) => {
     const {
         _id
     } = req.headers;
@@ -16,14 +15,14 @@ exports.getCompanyDetails = (req, res, next) => {
                 message: "Required values not provided!"
             })
     }
-    CompanyModel.findById({
+    UserModel.findById({
             _id
         })
-        .then(company => {
+        .then(user => {
             return res.status(200)
                 .json({
                     success: true,
-                    company
+                    user
                 })
         })
         .catch(err => {

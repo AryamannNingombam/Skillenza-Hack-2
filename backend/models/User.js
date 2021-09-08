@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 
-const CompanySchema = new Schema({
+const UserSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -22,15 +22,15 @@ const CompanySchema = new Schema({
         minlength: 8
     },
 
-    headquarters: {
-        type: String,
+    address: {
+        type: mongoose.Type.ObjectId,
         required: true,
 
     }
 
 })
 
-CompanySchema.methods.generateAuthToken = function (payload) {
+UserSchema.methods.generateAuthToken = function (payload) {
     token = jwt.sign(
         payload,
         process.env.JWT_TOKEN_HASH, {
@@ -40,7 +40,7 @@ CompanySchema.methods.generateAuthToken = function (payload) {
     return token;
 }
 
-const Company = mongoose.model('Company', CompanySchema);
+const User = mongoose.model('User', UserSchema);
 
 
-module.exports = Company;
+module.exports = User;

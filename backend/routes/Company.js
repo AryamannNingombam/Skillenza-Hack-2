@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AuthMiddleware = require('../middlware/Auth');
-const Controller = require('../controllers/Company')
+const Controller = require('../controllers/User')
 
 
-router.get("/get-company-details", AuthMiddleware.checkJWT, Controller.getCompanyDetails)
+router.get("/get-user-details", AuthMiddleware.checkJWT, Controller.getUserDetails)
