@@ -10,7 +10,7 @@ const DriverSchema = new Schema({
         required: true,
 
     },
-    company: {
+    User: {
         type: mongoose.Types.ObjectId,
         required: true,
 

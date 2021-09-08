@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const AuthRoutes = require('./routes/Auth');
-const CompanyRoutes = require('./routes/Company');
+const UserRoutes = require('./routes/User');
 const DeliveryRoutes = require('./routes/Delivery');
 const DriverRoutes = require('./routes/Driver');
 const LocationRoutes = require('./routes/Location');
@@ -60,7 +60,7 @@ app.use(bodyParser.json({
 }));
 
 app.use("/api/auth",AuthRoutes);
-app.use('/api/company',CompanyRoutes);
+app.use('/api/User',UserRoutes);
 app.use('/api/delivery',DeliveryRoutes);
 app.use('/api/driver',DriverRoutes);
 app.use('/api/location',LocationRoutes);

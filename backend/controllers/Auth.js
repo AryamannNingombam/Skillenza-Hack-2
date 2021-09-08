@@ -1,7 +1,7 @@
-const CompanyModel = require('../models/Company');
+const UserModel = require('../models/User');
 
 
-exports.signInCompany = (req, res, next) => {
+exports.signInUser = (req, res, next) => {
     const {
         username,
         email,
@@ -14,14 +14,14 @@ exports.signInCompany = (req, res, next) => {
             message: "Required values not provided!"
         })
     }
-    CompanyModel.findOne({
+    UserModel.findOne({
             username,
             email,
             password
         })
-        .then(company => {
-            const token = company.generateAuthToken({
-                _id: company._id
+        .then(User => {
+            const token = User.generateAuthToken({
+                _id: User._id
             });
             return res.status(200)
                 .json({
@@ -30,7 +30,7 @@ exports.signInCompany = (req, res, next) => {
                 })
         })
         .catch(err => {
-            console.log("Company not found!");
+            console.log("User not found!");
             return res.status(500)
                 .json({
                     success: false,
@@ -43,7 +43,7 @@ exports.signInCompany = (req, res, next) => {
 
 
 
-exports.signUpCompany = async (req, res, next) => {
+exports.signUpUser = async (req, res, next) => {
     const {
         username,
         password,
@@ -59,10 +59,10 @@ exports.signUpCompany = async (req, res, next) => {
             })
     }
     //checking if user already exists;
-    const check = await CompanyModel.find({
+    const check = await UserModel.find({
         username
     });
-    const check2 = await CompanyModel.find({
+    const check2 = await UserModel.find({
         email
     });
     if (check.length !== 0 || check2.length !== 0) {
@@ -73,8 +73,8 @@ exports.signUpCompany = async (req, res, next) => {
             })
     };
     //creating the new user;
-    CompanyModel.create(req.body)
-        .then(newCompany => {
+    UserModel.create(req.body)
+        .then(newUser => {
             console.log("New user created!");
             return res.status(200)
                 .json({
