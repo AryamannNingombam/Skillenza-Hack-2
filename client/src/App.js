@@ -9,7 +9,7 @@ import {store} from './app/store';
 
 function App() {
   const checkIfSignedIn = ()=>{
-    return true;
+    return store.getState().auth.signedIn;
   }
 
 

@@ -5,6 +5,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const AuthRoutes = require('./routes/Auth');
+const CompanyRoutes = require('./routes/Company');
+const DeliveryRoutes = require('./routes/Delivery');
+const DriverRoutes = require('./routes/Driver');
+const LocationRoutes = require('./routes/Location');
+
+
 
 const app = express()
 
@@ -30,7 +37,7 @@ app.use((req, res, next) => {
     )
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
     next()
-})
+}) 
 
 app.use((req, res, next) => {
     bodyParser.json({
@@ -51,6 +58,12 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json({
     extended: true
 }));
+
+app.use("/api/auth",AuthRoutes);
+app.use('/api/company',CompanyRoutes);
+app.use('/api/delivery',DeliveryRoutes);
+app.use('/api/driver',DriverRoutes);
+app.use('/api/location',LocationRoutes);
 
 const db = process.env.MONGO_DB_URI
 
