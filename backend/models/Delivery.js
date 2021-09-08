@@ -25,6 +25,7 @@ const DeliverySchema = new Schema({
     driverId: {
         type: mongoose.Types.ObjectId,
         required: false,
+        
     },
     onTheWay: {
         type: Boolean,

@@ -1,57 +1,35 @@
-import React from 'react';
+import React,{ useEffect,Suspense} from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { useRoutes } from 'react-router';
 import './App.css';
+import { DriverDetails } from './pages/DriverDetails/DriverDetails';
+import { SignIn } from './pages/SignIn/SignIn';
+import {store} from './app/store';
+
 
 function App() {
+  const checkIfSignedIn = ()=>{
+    return true;
+  }
+
+
+  const authRoutes = [
+    { path: '/driver-details', element:<DriverDetails/> },
+];
+  const homeRoutes =[
+    { path: '/sign-in', element:<SignIn/> },
+  ]
+
+  const authRouting = useRoutes(authRoutes);
+  const homeRouting = useRoutes(homeRoutes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+    <Suspense>
+
+    {checkIfSignedIn() ? authRouting : homeRouting}
+    </Suspense>
+  </>
   );
 }
 
