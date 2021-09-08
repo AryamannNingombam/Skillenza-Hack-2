@@ -19,9 +19,15 @@ exports.signInUser = (req, res, next) => {
             email,
             password
         })
+<<<<<<< HEAD
         .then(User => {
             const token = User.generateAuthToken({
                 _id: User._id
+=======
+        .then(user => {
+            const token = user.generateAuthToken({
+                _id: user._id
+>>>>>>> 50c15297009df515877816ef1c678ba05e092139
             });
             return res.status(200)
                 .json({
@@ -48,9 +54,9 @@ exports.signUpUser = async (req, res, next) => {
         username,
         password,
         email,
-        headquarters
+        address
     } = req.body;
-    if (!username || !password || !email || !headquarters) {
+    if (!username || !password || !email || !address) {
         console.log("Values not provided");
         return res.status(500)
             .json({

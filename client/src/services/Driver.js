@@ -1,7 +1,10 @@
 import axios from 'axios';
 import {returnToken} from './Common';
+<<<<<<< HEAD
 import {BACKEND_URL} from '../constants';
 
+=======
+>>>>>>> 50c15297009df515877816ef1c678ba05e092139
 
 export const getDriverDetails = (_id)=>{
     return axios.get(`${BACKEND_URL}/api/driver/get-driver-details`,{

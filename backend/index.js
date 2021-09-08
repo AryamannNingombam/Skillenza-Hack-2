@@ -60,7 +60,11 @@ app.use(bodyParser.json({
 }));
 
 app.use("/api/auth",AuthRoutes);
+<<<<<<< HEAD
 app.use('/api/User',UserRoutes);
+=======
+app.use('/api/user',UserRoutes);
+>>>>>>> 50c15297009df515877816ef1c678ba05e092139
 app.use('/api/delivery',DeliveryRoutes);
 app.use('/api/driver',DriverRoutes);
 app.use('/api/location',LocationRoutes);

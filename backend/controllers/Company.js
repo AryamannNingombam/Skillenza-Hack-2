@@ -3,7 +3,10 @@ const UserModel = require('../models/User');
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50c15297009df515877816ef1c678ba05e092139
 exports.getUserDetails = (req, res, next) => {
     const {
         _id
@@ -19,11 +22,19 @@ exports.getUserDetails = (req, res, next) => {
     UserModel.findById({
             _id
         })
+<<<<<<< HEAD
         .then(User => {
             return res.status(200)
                 .json({
                     success: true,
                     User
+=======
+        .then(user => {
+            return res.status(200)
+                .json({
+                    success: true,
+                    user
+>>>>>>> 50c15297009df515877816ef1c678ba05e092139
                 })
         })
         .catch(err => {

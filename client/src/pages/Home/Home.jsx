@@ -1,9 +1,9 @@
 import React from 'react';
-import './Home.css';
+import './Home.scss';
 import {store} from '../../app/store';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-
+import { useNavigate } from 'react-router';
 export const Home = () => {
     const AuthData = useSelector(state=>state.auth);
     const navigate = useNavigate();

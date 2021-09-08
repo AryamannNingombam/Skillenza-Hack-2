@@ -22,8 +22,8 @@ const UserSchema = new Schema({
         minlength: 8
     },
 
-    headquarters: {
-        type: String,
+    address: {
+        type: mongoose.Type.ObjectId,
         required: true,
 
     }
