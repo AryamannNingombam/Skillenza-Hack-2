@@ -1,13 +1,13 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap'; 
 import {store} from '../../app/store';
-import {SignUpThunk} from '../../features/auth/AuthSlice';
+import {SignUpThunk} from '../../features/auth/Auth';
 import { Link } from 'react-router-dom';
 import { Formik } from "formik";
 import * as yup from "yup";
-import './SignUpPage.css';
+import './SignUp.scss';
 import Recaptcha from 'react-recaptcha'; 
-
+import { useNavigate } from 'react-router';
 
 
 
@@ -35,9 +35,10 @@ const validationSchema = yup.object().shape({
 
 
 
-export const SignUpPage = () => {
+export const SignUp  = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const navigate = useNavigate();
     
     const siteKey = '6Lf6TtsaAAAAAGpdnPlDVBwsFXYKPrTpPU5GtDo5';    
 
@@ -48,7 +49,6 @@ export const SignUpPage = () => {
       console.log("INNINII")
       console.log(args);
     }
-    const navigate = useNavigate();
 
     return (
         <div id="signup-page-main-background">
@@ -56,6 +56,7 @@ export const SignUpPage = () => {
             initialValues={formInitialValues}
             validationSchema={validationSchema}
             onSubmit={async(values) => {
+              console.log(values);
               const result = await store.dispatch(SignUpThunk(values));
               console.log(result);
               if (result.payload.success){
@@ -127,7 +128,7 @@ export const SignUpPage = () => {
                     
                     type="submit"
                     id="submit-button">Submit</Button>
-                    <Link style={{color:"white"}} to="/log-in">Already have an account? Sign In!</Link>
+                    <Link style={{color:"white"}} to="/sign-in">Already have an account? Sign In!</Link>
                 </Form>)
               }}
               </Formik>
