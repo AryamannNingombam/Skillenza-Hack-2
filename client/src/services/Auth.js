@@ -7,6 +7,7 @@ export const SignInRequest = (body)=>{
 }
 
 export const SignUpRequest = (body)=>{
-    return axios.post(`${BACKEND_URL}/api/auth/sign-up-user`)
+    
+    return axios.post(`${BACKEND_URL}/api/auth/sign-up-user`,body);
 }
 

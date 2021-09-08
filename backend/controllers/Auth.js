@@ -48,9 +48,9 @@ exports.signUpUser = async (req, res, next) => {
         username,
         password,
         email,
-        address
     } = req.body;
-    if (!username || !password || !email || !address) {
+    if (!username || !password || !email) {
+        console.log(req.body)
         console.log("Values not provided");
         return res.status(500)
             .json({

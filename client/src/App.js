@@ -7,12 +7,12 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Home } from './pages/Home/Home';
 import { SignUp } from './pages/SignUp/SignUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {store} from './app/store';
 
 function App() {
   const checkIfSignedIn = ()=>{
-    //return store.getState().auth.signedIn;
-    return true;
+    return store.getState().auth.signedIn;
+  
   }
 
 

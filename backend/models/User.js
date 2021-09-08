@@ -24,8 +24,7 @@ const UserSchema = new Schema({
 
     address: {
         type: mongoose.Types.ObjectId,
-        required: true,
-
+        required: false,
     }
 
 })
