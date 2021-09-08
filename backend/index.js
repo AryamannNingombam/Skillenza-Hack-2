@@ -88,7 +88,7 @@ mongoose
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}.`)
         })
-        await RandomGeneration.GenerateRandomDeliveries();
+        // await RandomGeneration.GenerateRandomDeliveries();  
 
     })
     .catch((err) => {

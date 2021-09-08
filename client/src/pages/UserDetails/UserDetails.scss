@@ -1,0 +1,114 @@
+#driver-details-main-background{
+    background-color: black;
+    background-size: cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+#login-page-main-area{
+
+    
+    display:flex;
+    flex-direction:column;
+    width:80%;
+    align-items:center;
+
+}
+ 
+
+.login-page-main-heading{
+    margin:0 0.7rem;
+    font-size:3.5rem;
+    font-weight:bold;
+    color:white;
+}
+
+@keyframes login-page-heading-animations-left{
+    0%{
+        opacity:0;
+        transform : translateX(-100px);
+    }
+    70%{
+        
+        transform : translateX(10px);
+    }
+    100% {
+        opacity:1;
+        transform : translateX(0);
+    }
+}
+
+.valid-input{
+    border-left : 2px solid greenyellow;
+    transition:0.3s ease-in-out;
+}
+
+.invalid-input{
+    border-left : 2px solid rgb(230, 57, 57);
+    transition: 0.3s ease-in-out;
+}
+
+#LOG{
+    opacity: 0;
+    animation:login-page-heading-animations-left 1.3s ease-in-out 0s;
+    animation-fill-mode: forwards;
+}
+
+#IN{
+    opacity: 0;
+    animation:login-page-heading-animations-right 1.3s ease-in-out 0s;
+    animation-fill-mode: forwards;
+}
+@keyframes login-page-heading-animations-right{
+    0%{
+        opacity:0;
+        transform : translateX(100px);
+    }
+    70%{
+      
+        transform : translateX(-10px);
+    }
+    100% {
+        opacity:1;
+        transform : translateX(0);
+    }
+}
+#submit-button{
+    font-size:1.3rem;
+    padding:0.5em 5.6rem;
+    border-radius:14px;
+    color:white;
+    background-color:#FF7CCB;
+    cursor:pointer;
+    font-weight:bold;
+    transition: 0.3s ease-out;
+    animation:submit-button-animation 1.3s ease-in-out 0s forwards;
+}
+#submit-button:hover{
+    background-color:#fc5ebd;
+}
+
+
+#login-page-heading-area{
+    display:flex;
+    flex-direction:row;
+}
+@keyframes submit-button-animation{
+    0%{
+        opacity:0;
+        transform:scaleX(0);
+    }
+    70%{
+        opacity:1;
+        transform:scaleX(1.3);
+    }
+    100%{
+        transform:scaleX(1);
+    }
+
+}
