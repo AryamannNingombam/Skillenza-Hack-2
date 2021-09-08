@@ -23,7 +23,7 @@ const DeliverySchema = new Schema({
         default: false
     },
     driverId: {
-        type: mongoose.Types.ObjectId,
+        type:String,
         required: false,
         
     },

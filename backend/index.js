@@ -10,7 +10,7 @@ const UserRoutes = require('./routes/User');
 const DeliveryRoutes = require('./routes/Delivery');
 const DriverRoutes = require('./routes/Driver');
 const LocationRoutes = require('./routes/Location');
-
+const RandomGeneration = require('./services/RandomGeneration');
 
 
 const app = express()
@@ -68,7 +68,7 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
-    .then(() => {
+    .then(async () => {
 
         console.log("Connected!");
 
@@ -88,6 +88,7 @@ mongoose
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}.`)
         })
+        await RandomGeneration.GenerateRandomDeliveries();
 
     })
     .catch((err) => {
