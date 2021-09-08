@@ -2,7 +2,7 @@ import React,{ useEffect,Suspense} from 'react';
 import logo from './logo.svg';
 import { useRoutes } from 'react-router';
 import './App.css';
-import { DriverDetails } from './pages/DriverDetails/DriverDetails';
+import { UserDetails } from './pages/UserDetails/UserDetails';
 import { SignIn } from './pages/SignIn/SignIn';
 import { Home } from './pages/Home/Home';
 import { SignUp } from './pages/SignUp/SignUp';
@@ -19,7 +19,7 @@ function App() {
   const authRoutes = [
     { path: '/home-page', element:<Home/> },
     { path: '/', element:<Home/> },
-    { path: '/driver-details', element:<DriverDetails/> },
+    { path: '/user-details', element:<UserDetails/> },
 
 
 ];

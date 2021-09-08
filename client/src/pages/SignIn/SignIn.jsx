@@ -11,6 +11,7 @@ export const SignIn = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const navigate = useNavigate();
+    
     const onButtonClick = async(e)=>{
         e.preventDefault();
         const result = await store.dispatch(SignInThunk({email:email,password:password}));
@@ -45,6 +46,28 @@ export const SignIn = () => {
 
     return (
         <div id="login-page-main-background">
+
+        onSubmit={async (values) => {
+          console.log(values)
+        //   if (values.password !== values.password2) {
+        //     alert('Passwords not matching!')
+        //   }
+          const result = await store.dispatch(
+            SignInThunk({
+              username: values.username,
+              email: values.email,
+              password: values.password,
+            }),
+          )
+          console.log(result)
+          if (result.payload.success) {
+            alert("Signed In!");
+            navigate('/user-details')
+          } else {
+            alert('Error signing In!')
+          }
+        }}
+        
                 <form id="login-page-main-area">
                         <span id='login-page-heading-area'>
                         <span className="login-page-main-heading" id="LOG">Log </span>
@@ -59,6 +82,8 @@ export const SignIn = () => {
                     <button onClick={onButtonClick} id="submit-button">Submit</button>
                     <Link style={{color:"white"}} to="/sign-up">Don't have an account? Sign Up!</Link>
                 </form>
+
+
         </div>
     )
 }

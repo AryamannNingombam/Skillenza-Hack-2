@@ -4,9 +4,9 @@ import {
 } from '../constants';
 import {returnToken} from './Common';
 
-export const GetCompanyDetails = (_id) => {
+export const GetUserDetails = (_id) => {
      
-    return axios.get(`${BACKEND_URL}/api/company/get-company/details`, {
+    return axios.get(`${BACKEND_URL}/api/user/get-user/details`, {
         headers: {
             'content-type': 'application/json',
             'x-auth-token': returnToken(),
