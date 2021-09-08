@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     )
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
     next()
-}) 
+})
 
 app.use((req, res, next) => {
     bodyParser.json({
@@ -59,15 +59,6 @@ app.use(bodyParser.json({
     extended: true
 }));
 
-app.use("/api/auth",AuthRoutes);
-<<<<<<< HEAD
-app.use('/api/User',UserRoutes);
-=======
-app.use('/api/user',UserRoutes);
->>>>>>> 50c15297009df515877816ef1c678ba05e092139
-app.use('/api/delivery',DeliveryRoutes);
-app.use('/api/driver',DriverRoutes);
-app.use('/api/location',LocationRoutes);
 
 const db = process.env.MONGO_DB_URI
 
@@ -86,6 +77,11 @@ mongoose
                 message: 'Welcome to my API'
             })
         })
+        app.use("/api/auth", AuthRoutes);
+        app.use('/api/user', UserRoutes);
+        app.use('/api/delivery', DeliveryRoutes);
+        app.use('/api/driver', DriverRoutes);
+        app.use('/api/location', LocationRoutes);
 
 
         const PORT = process.env.PORT || 8080

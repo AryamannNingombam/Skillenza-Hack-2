@@ -7,6 +7,9 @@ export const DriverDetails = () => {
   const onUsernameChange = (e) => {
     setUsername(e.target.value)
   }
+  const onButtonClick = (e)=>{
+    console.log(username);
+  }
   return (
     <>
       <h1>Add Details</h1>

@@ -23,7 +23,7 @@ const UserSchema = new Schema({
     },
 
     address: {
-        type: mongoose.Type.ObjectId,
+        type: mongoose.Types.ObjectId,
         required: true,
 
     }

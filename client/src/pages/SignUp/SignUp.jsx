@@ -57,14 +57,14 @@ export const SignUp  = () => {
             validationSchema={validationSchema}
             onSubmit={async(values) => {
               console.log(values);
-              const result = await store.dispatch(SignUpThunk(values));
-              console.log(result);
-              if (result.payload.success){
+              // const result = await store.dispatch(SignUpThunk(values));
+              // console.log(result);
+              // if (result.payload.success){
 
-                 navigate('/sign-in')
-              }else{
-                alert("Error signing up!")
-              }
+              //    navigate('/sign-in')
+              // }else{
+              //   alert("Error signing up!")
+              // }
             }}>
             {
               ({ handleChange, handleBlur, handleSubmit, values, touched, errors }) => {

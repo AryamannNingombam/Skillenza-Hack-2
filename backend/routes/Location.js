@@ -11,3 +11,6 @@ router.get('/get-location-details', AuthMiddleware.checkJWT,
 
 router.get('/get-all-locations', AuthMiddleware.checkJWT,
     Controller.getAllLocations);
+
+
+    module.exports =router;

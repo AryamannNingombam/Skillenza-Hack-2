@@ -18,8 +18,12 @@ router.put('/end-delivery', AuthMiddleware.checkJWT,
     Controller.endDelivery);
 
 router.put("/start-delivery", AuthMiddleware.checkJWT,
-    Controller.startDeelivery);
+    Controller.startDelivery);
 
 
 router.post("/add-delivery", AuthMiddleware.checkJWT,
     Controller.addDelivery);
+
+
+
+module.exports = router;
