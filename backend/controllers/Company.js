@@ -7,7 +7,7 @@ const CompanyModel = require('../models/Company');
 exports.getCompanyDetails = (req, res, next) => {
     const {
         _id
-    } = req.headers._id;
+    } = req.headers;
     if (!_id) {
         console.log("Id not provided!");
         return res.status(500)

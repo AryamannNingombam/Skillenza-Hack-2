@@ -18,7 +18,7 @@ router.put('/end-delivery', AuthMiddleware.checkJWT,
     Controller.endDelivery);
 
 router.put("/start-delivery", AuthMiddleware.checkJWT,
-    Controller.startDelivery);
+    Controller.startDeelivery);
 
 
 router.post("/add-delivery", AuthMiddleware.checkJWT,
