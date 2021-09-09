@@ -7,6 +7,7 @@ exports.signInUser = (req, res, next) => {
         email,
         password
     } = req.body;
+    console.log(req.body);
     if (!username || !email || !password) {
         console.log("Values not provided");
         return res.status(500).json({
@@ -31,6 +32,7 @@ exports.signInUser = (req, res, next) => {
         })
         .catch(err => {
             console.log("User not found!");
+            console.log(err);
             return res.status(500)
                 .json({
                     success: false,

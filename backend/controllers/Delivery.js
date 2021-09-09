@@ -240,3 +240,34 @@ exports.addDelivery = async (req, res, next) => {
 
 
 }
+
+
+
+exports.changePreferredTimeForDelivery = (req,res,next)=>{
+    const {_id,time} = req.body;
+    if (!_id || !time){
+        console.log("required values not provided!")
+        return res.status(500)
+        .json({
+            success:false,
+            message:"required values not provided"
+        })
+    }
+    DeliveryModel.findByIdAndUpdate({_id},{preferredTime:time},{new:true})
+    .then(updatedDelivery=>{
+        console.log("Delivery updated");
+        return res.status(200)
+        .json({
+            success:true,
+        })
+    })
+    .catch(err=>{
+        console.log("ERROR");
+        console.log(err);
+        return res.status(500)
+        .json({
+            success:false,
+            message:"Unknown server error!"
+        })
+    })
+}

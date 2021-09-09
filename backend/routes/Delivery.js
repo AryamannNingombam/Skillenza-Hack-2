@@ -8,6 +8,10 @@ router.put('/change-delivery-person-for-delivery', AuthMiddleware.checkJWT,
     Controller.changeDeliveryPersonForDelivery);
 
 
+router.put('/change-preference-time-for-delivery',AuthMiddleware.checkJWT,
+Controller.changePreferredTimeForDelivery);
+
+
 router.get('/get-delivery-details-for-driver', AuthMiddleware.checkJWT,
     Controller.getDeliveryDetailsForDriver);
 

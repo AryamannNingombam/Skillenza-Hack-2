@@ -17,6 +17,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.0",
     "mongoose": "^5.13.5",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "random-date-generator": "^1.0.2",
+    "random-number": "^0.0.9",
+    "randomstring": "^1.2.1"
   }
 }

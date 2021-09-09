@@ -1,10 +1,6 @@
 import axios from 'axios';
 import {returnToken} from './Common';
-<<<<<<< HEAD
 import {BACKEND_URL} from '../constants';
-
-=======
->>>>>>> 50c15297009df515877816ef1c678ba05e092139
 
 export const getUserDetails = (_id)=>{
     return axios.get(`${BACKEND_URL}/api/driver/get-driver-details`,{
@@ -39,7 +35,7 @@ export const changeDriverFreeStatus = (body)=>{
 
 export const changeDriverOnTheWayStatus = (body)=>{
     return axios.put(`${BACKEND_URL}/api/driver/change-driver-on-the-way-status`,body,{
-        headers : {
+        headers : { 
             'content-type' : "application/json",
             'x-auth-token' : returnToken()
         }

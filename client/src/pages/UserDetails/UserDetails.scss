@@ -27,6 +27,18 @@
     font-weight:bold;
     color:white;
 }
+.login-page-detail-heading{
+    margin:0 0.7rem;
+    font-size:1.5rem;
+    font-weight:bold;
+    color:white;
+}
+
+.login-page-info-heading{
+    margin:0 0.7rem;
+    font-size:1rem;
+    color:rgb(178, 155, 207);
+}
 
 @keyframes login-page-heading-animations-left{
     0%{
@@ -81,6 +93,8 @@
 #submit-button{
     font-size:1.3rem;
     padding:0.5em 5.6rem;
+    margin:1.1em 0;
+
     border-radius:14px;
     color:white;
     background-color:#FF7CCB;
