@@ -1,6 +1,7 @@
 const DeliveryModel = require('../models/Delivery');
 const LocationModel = require('../models/Location');
 const DriverModel = require('../models/Driver');
+const MinuteMethods = require('../services/CheckTime');
 
 
 exports.changeDeliveryPersonForDelivery = async (req, res, next) => {
@@ -243,31 +244,59 @@ exports.addDelivery = async (req, res, next) => {
 
 
 
-exports.changePreferredTimeForDelivery = (req,res,next)=>{
-    const {_id,time} = req.body;
-    if (!_id || !time){
+exports.changePreferredTimeForDelivery = async (req, res, next) => {
+    const {
+        _id,
+        time
+    } = req.body;
+
+
+    if (!_id || !time) {
         console.log("required values not provided!")
         return res.status(500)
-        .json({
-            success:false,
-            message:"required values not provided"
-        })
+            .json({
+                success: false,
+                message: "required values not provided"
+            })
     }
-    DeliveryModel.findByIdAndUpdate({_id},{preferredTime:time},{new:true})
-    .then(updatedDelivery=>{
-        console.log("Delivery updated");
-        return res.status(200)
-        .json({
-            success:true,
-        })
+    const check = await DeliveryModel.find({
+        preferredTime: {
+            $gt: MinuteMethods.subtractMinutes(new Date(time), 30),
+            $lt: MinuteMethods.addMinutes(new Date(time), 30)
+        }
     })
-    .catch(err=>{
-        console.log("ERROR");
-        console.log(err);
+
+    if (check.length === 0) {
+        console.log("not allowed!");
         return res.status(500)
-        .json({
-            success:false,
-            message:"Unknown server error!"
+            .json({
+                success: false,
+                message: "Time slow not allowed!"
+            })
+    }
+
+
+    DeliveryModel.findByIdAndUpdate({
+            _id
+        }, {
+            preferredTime: time
+        }, {
+            new: true
         })
-    })
+        .then(updatedDelivery => {
+            console.log("Delivery updated");
+            return res.status(200)
+                .json({
+                    success: true,
+                })
+        })
+        .catch(err => {
+            console.log("ERROR");
+            console.log(err);
+            return res.status(500)
+                .json({
+                    success: false,
+                    message: "Unknown server error!"
+                })
+        })
 }
