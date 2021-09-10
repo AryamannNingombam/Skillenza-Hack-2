@@ -93,6 +93,7 @@ export const UserDetails = () => {
             <button onClick={onButtonClick} id="submit-button">Get Order Details</button>
 
             {deliveryDetails ? <>
+            
             <span className="login-page-detail-heading" id="Log">
               Delivery Id :{' '}
             </span>

@@ -5,7 +5,7 @@ import { SignInThunk } from '../../features/auth/Auth'
 import { Link } from 'react-router-dom'
 import { Formik } from 'formik'
 import * as yup from 'yup'
-import './SignIn.scss'
+import './SignIn.css'
 import Recaptcha from 'react-recaptcha'
 import { useNavigate } from 'react-router'
 
